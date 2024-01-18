@@ -1,9 +1,9 @@
+import 'package:ceu_companion/models/ceucourse.dart'; // Update the import path
+import 'package:ceu_companion/screens/ceu_add_course_form.dart'; // Update the import path
+import 'package:ceu_companion/screens/ceu_list_screen.dart';
+import 'package:ceu_companion/screens/ceu_progress_tracking_view.dart'; // Update the import path
+import 'package:ceu_companion/screens/dashboard_view.dart'; // Update the import path
 import 'package:flutter/material.dart';
-
-import 'screens/ceu_add_course_form.dart';
-import 'screens/ceu_list_screen.dart';
-import 'screens/ceu_progress_tracking_view.dart';
-import 'screens/dashboard_view.dart';
 
 void main() {
   runApp(MyApp());
@@ -30,14 +30,19 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   int _selectedIndex = 0;
-  final List<CEUCourse> ceuCourses = []; // Replace with actual data source
-  final double progressValue = 0.5; // Replace with actual progress calculation
 
-  static List<Widget> _widgetOptions(BuildContext context) => <Widget>[
+  // Dummy data for CEU courses and progress value.
+  // Replace these with your actual data source and calculation logic.
+  List<CEUCourse> ceuCourses = []; // Your actual list of CEU courses
+  double progressValue = 0.5; // Your actual progress value calculation
+
+  // Converted _widgetOptions to a getter to access instance members.
+  List<Widget> get _widgetOptions => <Widget>[
         DashboardView(),
-        CEUListScreen(), // Assuming CEUListScreen() takes no parameters now
+        CEUListScreen(ceuCourses), // Pass the list of courses
         CEUAddCourseForm(),
-        CEUProgressTrackingView(progress: progressValue),
+        CEUProgressTrackingView(
+            progress: progressValue), // Pass the progress value
       ];
 
   void _onItemTapped(int index) {
@@ -50,10 +55,10 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('CEU Companion'),
+        title: Text('CEU Companion'),
       ),
       body: Center(
-        child: _widgetOptions(context).elementAt(_selectedIndex),
+        child: _widgetOptions.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
