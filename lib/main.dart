@@ -11,12 +11,14 @@ class MyApp extends StatelessWidget {
       title: 'DPT Companion',
       theme: ThemeData(
         brightness: Brightness.light,
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.green,
+        hintColor: Colors.orange,
         useMaterial3: true,
       ),
       darkTheme: ThemeData(
         brightness: Brightness.dark,
-        primarySwatch: Colors.blueGrey,
+        primarySwatch: Colors.teal,
+        hintColor: Colors.deepOrange,
         useMaterial3: true,
       ),
       home: MyHomePage(),
@@ -24,7 +26,26 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatelessWidget {
+class MyHomePage extends StatefulWidget {
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  int _counter = 0;
+
+  void _incrementCounter() {
+    setState(() {
+      _counter++;
+    });
+  }
+
+  void _decrementCounter() {
+    setState(() {
+      _counter--;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,9 +53,31 @@ class MyHomePage extends StatelessWidget {
         title: Text('DPT Companion'),
       ),
       body: Center(
-        child: Text(
-          'Welcome, DPT Professional!',
-          style: Theme.of(context).textTheme.headline5,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              'You have pushed the button this many times:',
+              style: Theme.of(context).textTheme.headline6,
+            ),
+            Text(
+              '$_counter',
+              style: Theme.of(context).textTheme.headline4,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                ElevatedButton(
+                  onPressed: _decrementCounter,
+                  child: Text('-'),
+                ),
+                ElevatedButton(
+                  onPressed: _incrementCounter,
+                  child: Text('+'),
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     );
