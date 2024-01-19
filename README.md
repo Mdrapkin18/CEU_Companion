@@ -57,6 +57,3 @@ Contributions to the project are welcome. Please ensure to follow the project's 
 ## License
 Specify the project's license here.
 
----
-
-After updating this README, please ensure to commit and push the updated README to the GitHub repository.
