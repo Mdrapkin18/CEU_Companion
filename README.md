@@ -56,4 +56,3 @@ Contributions to the project are welcome. Please ensure to follow the project's 
 
 ## License
 Specify the project's license here.
-
