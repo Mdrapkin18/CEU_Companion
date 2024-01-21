@@ -22,6 +22,32 @@ CEU Companion is a mobile app and web platform designed for physical therapists,
 ## Current State of the Project
 The project currently has the basic UI components for listing CEUs, adding new CEUs, and displaying CEU progress. It is set up for cross-platform functionality with a focus on clean and professional design suitable for DPT professionals.
 
+## Getting Started
+
+To get a local copy up and running, follow these simple steps:
+
+1. Clone the repository:
+```bash
+git clone https://github.com/Mdrapkin18/CEU_Companion.git
+```
+
+2. Navigate to the cloned repository directory:
+```bash
+cd CEU_Companion
+```
+
+3. Install all the required packages:
+```bash
+flutter pub get
+```
+
+4. Run the app on a connected device or emulator:
+```bash
+flutter run
+```
+
+For more information on setting up Flutter and running apps, visit the [Flutter official documentation](https://flutter.dev/docs).
+
 ## Next Steps
 
 ### Navigation Enhancement
@@ -56,3 +82,4 @@ Contributions to the project are welcome. Please ensure to follow the project's 
 
 ## License
 Specify the project's license here.
+```
